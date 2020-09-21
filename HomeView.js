@@ -9,18 +9,17 @@ export default function HomeView({ navigation }) {
       <View
         style={{
           flex: 1,
-          flexDirection: "row",
+          flexDirection: "column",
         }}
       >
         <Button
           title="Devices"
           onPress={() => navigation.navigate("Devices", { device })}
-        >
-          <Image
-            style={styles.imagestyle}
-            source={{ uri: "https://i.imgur.com/6EyuKgK.png" }}
-          />
-        </Button>
+        ></Button>
+        <Image
+          source={{ uri: "https://i.imgur.com/6EyuKgK.png" }}
+          style={{ width: 200, height: 200 }}
+        />
       </View>
     </View>
   );
@@ -29,8 +28,7 @@ export default function HomeView({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: "20%",
-    backgroundColor: "#fff",
+    backgroundColor: "#130c18",
     alignItems: "center",
     justifyContent: "center",
   },
