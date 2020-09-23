@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput, Button, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Button,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 
 export default function HomeView({ navigation }) {
   const [device, setDevice] = useState([]);
@@ -12,14 +20,14 @@ export default function HomeView({ navigation }) {
           flexDirection: "column",
         }}
       >
-        <Button
-          title="Devices"
+        <TouchableOpacity
           onPress={() => navigation.navigate("Devices", { device })}
-        ></Button>
-        <Image
-          source={{ uri: "https://i.imgur.com/6EyuKgK.png" }}
-          style={{ width: 200, height: 200 }}
-        />
+        >
+          <Image
+            source={{ uri: "https://i.imgur.com/6EyuKgK.png" }}
+            style={{ width: 300, height: 300 }}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );

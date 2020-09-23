@@ -11,8 +11,34 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeView} />
-        <Stack.Screen name="Devices" component={DeviceView} />
+        <Stack.Screen
+          name="Home"
+          component={HomeView}
+          options={{
+            title: " ",
+            headerStyle: {
+              backgroundColor: "#130c18",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Devices"
+          component={DeviceView}
+          options={{
+            title: "Recorded Devices",
+            headerStyle: {
+              backgroundColor: "#130c18",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
