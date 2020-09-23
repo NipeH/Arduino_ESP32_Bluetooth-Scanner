@@ -14,21 +14,14 @@ export default function HomeView({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: "column",
-        }}
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Devices", { device })}
       >
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Devices", { device })}
-        >
-          <Image
-            source={{ uri: "https://i.imgur.com/6EyuKgK.png" }}
-            style={{ width: 300, height: 300 }}
-          />
-        </TouchableOpacity>
-      </View>
+        <Image
+          source={{ uri: "https://i.imgur.com/6EyuKgK.png" }}
+          style={{ width: 300, height: 300 }}
+        />
+      </TouchableOpacity>
     </View>
   );
 }

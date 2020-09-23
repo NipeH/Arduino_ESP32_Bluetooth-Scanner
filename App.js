@@ -15,6 +15,7 @@ export default function App() {
           name="Home"
           component={HomeView}
           options={{
+            headerShown: false,
             title: " ",
             headerStyle: {
               backgroundColor: "#130c18",
