@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function DeviceList() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>LIST OF ALL RECORDED DEVICES</Text>
+      <Text style={styles.text}>[LIST OF ALL RECORDED DEVICES]</Text>
       <StatusBar style="auto" />
     </View>
   );
