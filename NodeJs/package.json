@@ -1,12 +1,13 @@
 {
   "name": "nodejs",
   "version": "1.0.0",
-  "description": "",
+  "description": "http://localhost:8080 - message\t\"Ei pyydettyä palvelua\"",
   "main": "btdataServer.js",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^4.1.1",
+    "serialport": "^9.0.1",
     "sqlite3": "^5.0.0"
   },
   "devDependencies": {},

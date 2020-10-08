@@ -1,47 +1,25 @@
-const express = require('express');
-const app = express();
-const cors = require('cors');
-app.use(cors());
+const express = require('express')
+const app = express()
+const port = 3000
 
-app.use(express.json());
+app.get('/homepage', (req, res) => {
+  res.send('Homepage!')
+})
 
-const sqlite3 = require('sqlite3');
-const db = new sqlite3.Database('data.db');
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+  })
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
 
 const SerialPort = require('serialport')
 const Readline = require('@serialport/parser-readline')
-const port = new SerialPort(path, { baudRate: 256000 })
+const serialport2 = new SerialPort('COM5', { baudRate: 9600 })
 
 const parser = new Readline()
-port.pipe(parser)
+serialport2.pipe(parser)
+
 parser.on('data', line => console.log(`> ${line}`))
-port.write('ROBOT POWER ON\n')
-
-app.listen(8080, () => {
-    console.log('Node toimii localhost:8080');
-})
-
-app.post('/person/add', (req, res, next) => {
-    let tap = req.body;
-
-    db.run('INSERT INTO person(btdata, datetime) VALUES (?, ?)',
-        [tap.btdata, tap.datetime], (error, result) => {
-        
-        if (error) throw error;
-        
-        return res.status(200).json( {count: 1} );
-    })
-})
-
-app.get('/person/all', (req, res, next) => {
-    db.all('SELECT * FROM person', (error, results) => {
-        
-    if(error) throwerror;
-            
-    return res.status(200).json(results);
-    })
-})
-
-app.get('*', (req, res, next) => {
-    return res.status(404).json({ error: true, message: 'Ei pyydettyä palvelua' })
-})
+//port.write('ROBOT POWER ON\n')
