@@ -8,6 +8,15 @@ app.use(express.json());
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('data.db');
 
+const SerialPort = require('serialport')
+const Readline = require('@serialport/parser-readline')
+const port = new SerialPort(path, { baudRate: 256000 })
+
+const parser = new Readline()
+port.pipe(parser)
+parser.on('data', line => console.log(`> ${line}`))
+port.write('ROBOT POWER ON\n')
+
 app.listen(8080, () => {
     console.log('Node toimii localhost:8080');
 })
