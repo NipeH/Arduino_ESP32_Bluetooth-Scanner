@@ -3,14 +3,14 @@ const db = new sqlite3.Database('data.db')
 
 db.serialize( () => {
 
-    let sql = 'CREATE TABLE Person (' + 
-        'id integer PRIMARY KEY NOT NULL, ' +
-        'btdata text NOT NULL, ' +
-        'datetime TEXT)';
+    let sql = "CREATE TABLE IF NOT EXISTS espData (id INTEGER PRIMARY KEY AUTOINCREMENT, pvm TEXT, btdata TEXT)";
 
     db.run(sql, (err) => {
         if (err) {
-            return console.log(err.message);
+          return console.log(err.message);
         }
-    })
+        console.log("Taulu luotu");
+      })
 })
+
+db.close();
