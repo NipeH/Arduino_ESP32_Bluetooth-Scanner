@@ -1,6 +1,6 @@
 ## Käynnistä palvelin komennolla npm run dev (tämä on parempi) tai node btdataServer
 
-http://localhost:3000 - message	Consoliin kirjatuu COM5 yhteyden data
+http://localhost:3000 - message	Consoliin kirjatuu COMx yhteyden data
 
 ## Asennetut paketit:
 NodeJs
