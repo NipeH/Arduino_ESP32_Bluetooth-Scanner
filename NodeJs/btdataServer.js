@@ -25,7 +25,7 @@ const Readline = require('@serialport/parser-readline')
 const { parsers } = require('serialport')
 
 // Tarkista aina oikea Serial portti, baudrate on sama
-const serialport2 = new SerialPort('COM3', { baudRate: 9600 })
+const serialport2 = new SerialPort('COM5', { baudRate: 115200 })
 const parser = new Readline()
 serialport2.pipe(parser)
 
