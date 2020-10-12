@@ -1,7 +1,3 @@
-/*
-   Based on Neil Kolban example for IDF: https://github.com/nkolban/esp32-snippets/blob/master/cpp_utils/tests/BLE%20Tests/SampleScan.cpp
-   Ported to Arduino ESP32 by Evandro Copercini
-*/
 
 #include <BLEDevice.h>
 #include <BLEUtils.h>
@@ -14,7 +10,7 @@ BLEScan* pBLEScan;
 
 class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks {
     void onResult(BLEAdvertisedDevice advertisedDevice) {
-      Serial.printf("ID: %s \n", advertisedDevice.getAddress().toString().c_str());
+      Serial.printf("ID: %s \n", advertisedDevice.getAddress().toString().c_str()); // Search result reduced for now to print only addresses
     }
 };
 
