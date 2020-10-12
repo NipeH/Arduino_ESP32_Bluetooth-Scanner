@@ -54,6 +54,7 @@ app.get('/btdata/all', (req, res, next) => {
     });
   });
 
+// Tiedon lisääminen, ei vielä käytössä
 app.post('/btdata/add',  (req, res, next) => {
 
     let tap = req.body;
