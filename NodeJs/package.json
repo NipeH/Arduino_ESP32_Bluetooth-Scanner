@@ -4,9 +4,11 @@
   "description": "http://localhost:8080 - message\t\"Ei pyydettyä palvelua\"",
   "main": "btdataServer.js",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^4.1.1",
+    "mongoose": "^5.10.9",
     "nodaemon": "0.0.5",
     "serialport": "^9.0.1",
     "sqlite3": "^5.0.0"
