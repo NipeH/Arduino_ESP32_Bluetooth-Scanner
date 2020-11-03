@@ -6,9 +6,6 @@ http://localhost:3000 - message	Consoliin kirjatuu COMx yhteyden data
 NodeJs
 https://nodejs.org/en/
 
-SQLite relaatiotietokanta järjestelmä :
-npm install sqlite3 --save
-
 Framework palvelinpuolen web-sovellusten tekoon :
 npm install express --save 
 
