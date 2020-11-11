@@ -2,6 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import HomeView from "./HomeView";
 import DeviceView from "./DeviceView";
@@ -17,14 +18,45 @@ const Tab = createBottomTabNavigator();
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+              screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'Devices') {
+              iconName = focused
+                ? 'ios-list'
+                : 'ios-list';
+            } 
+            
+            else if (route.name === 'History') {
+              iconName = focused ? 'ios-clock' : 'ios-clock';
+            }
+            
+            else if (route.name === 'Stats') {
+              iconName = focused ? 'ios-podium' : 'ios-podium';
+            }
+            
+            else if (route.name === 'Settings') {
+              iconName = focused ? 'ios-cog' : 'ios-cog';
+            }
+
+            // You can return any component that you like here!
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'grey',
+        }}
+      >
         <Tab.Screen
           name="Devices"
           component={DeviceView}
           options={{
             title: "Devices",
             headerStyle: {
-              backgroundColor: "#130c18",
+              backgroundColor: "black",
             },
             headerTintColor: "#fff",
             headerTitleStyle: {
