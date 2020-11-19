@@ -19,13 +19,7 @@ Sitten alkaa erroria tulemaan ensimmäisellä kerralla, mutta kun painatte CREAT
 Node-Red lukee MQTT datan. Funktio ottaa datan, muokkaa sen tietokannalle sopivaksi, lisää siihen ID, Date, Time. Tämän jälkeen se tallennetaan tietokantaan. 
 Jos olet laittanut tietokannan NodeJs hakemistoon muokkaa seuraava kohta tiedoston nimeksi:
 
-const db = new sqlite3.Database('./**TÄMÄ KOHTA MUOKKAA**', (err) => {
-    if (err) {
-        console.error("Erro opening database " + err.message);
-    } else {
-        console.log("Database connected.");
-           
-    }
-});
+"const db = new sqlite3.Database('./**TÄMÄ KOHTA MUOKKAA**', (err) =>"
+ 
 
 Kun molemmat Node-Red ja NodeJs olevat päällä, voit nähdä kuinka tietokanta paisuu ja tallentaa kaikki haluamasi datan.
