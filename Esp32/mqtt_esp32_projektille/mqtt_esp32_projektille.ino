@@ -16,25 +16,17 @@ const char* mqtt_server = "192.168.86.225";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
-long lastMsg = 0;
-char msg[50];
 int value = 0;
 int clients = 0;
 
 int scanTime = 10;
 BLEScan* pBLEScan;
 
-// LED Pin
-const int ledPin = 4;
-
 void setup() {
   Serial.begin(115200);
 
   setup_wifi();
   client.setServer(mqtt_server, 1883);
-  client.setCallback(callback);
-
-  pinMode(ledPin, OUTPUT);
 }
 
 void setup_wifi() {
@@ -55,31 +47,6 @@ void setup_wifi() {
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
-}
-
-void callback(char* topic, byte* message, unsigned int length) {
-  Serial.print("Message arrived on topic: ");
-  Serial.print(topic);
-  Serial.print(". Message: ");
-  String messageTemp;
-  
-  for (int i = 0; i < length; i++) {
-    Serial.print((char)message[i]);
-    messageTemp += (char)message[i];
-  }
-  Serial.println();
-
-  if (String(topic) == "esp32/") {
-    Serial.print("Changing output to ");
-    if(messageTemp == "on"){
-      Serial.println("on");
-      digitalWrite(ledPin, HIGH);
-    }
-    else if(messageTemp == "off"){
-      Serial.println("off");
-      digitalWrite(ledPin, LOW);
-    }
-  }
 }
 
 void reconnect() {
@@ -104,7 +71,7 @@ void reconnect() {
 void scannaus(){
   class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks {
     void onResult(BLEAdvertisedDevice advertisedDevice) {
-      client.publish("/esp32", advertisedDevice.getAddress().toString().c_str());
+      client.publish("/esp32/device_2", advertisedDevice.getAddress().toString().c_str());
     }
   };
   BLEDevice::init("");
@@ -115,12 +82,18 @@ void scannaus(){
   pBLEScan->setWindow(99); 
 
   BLEScanResults foundDevices = pBLEScan->start(scanTime, false);
+  
+  // Serial test communication, prints amount of BT devices found
   Serial.println(foundDevices.getCount());
   
+  /*
+  // Amount of BT devices found 
   clients = foundDevices.getCount();
   char clientstr[8];
-  dtostrf(clients, 1, 2, clientstr);   
-  client.publish("/esp32", clientstr);
+  dtostrf(clients, 1, 0, clientstr);   
+  client.publish("/esp32/devices_num", clientstr);*/
+
+  
   pBLEScan->clearResults();
   delay(2000);
 }
@@ -133,10 +106,5 @@ void loop() {
   client.loop();
   
   scannaus();
-  
-  long now = millis();
-  if (now - lastMsg > 5000) {
-    lastMsg = now;
-    char msgString[8];
-  }
+ 
 }
