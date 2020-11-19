@@ -16,4 +16,6 @@ ESP32 pitää uudelleen formatoida jotta ohjelma mahtuu laitteelle.
 https://www.youtube.com/watch?v=5VoXNloOwZE
 
 
+## Päivitys 19-11-2020
 
+Poistettu ylimääräistä koodia ja kommentoitu pois laskeminen. Tietokannasta lasketaan tästä lähtien.
