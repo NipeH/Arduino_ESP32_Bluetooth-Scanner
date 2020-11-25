@@ -4,7 +4,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import HomeView from "./HomeView";
 import DeviceView from "./DeviceView";
 import HistoryView from "./HistoryView";
 import StatsView from "./StatsView";
@@ -69,7 +68,7 @@ export default function Navigation() {
           component={HistoryView}
           options={{
             headerShown: false,
-            title: "History",
+            title: "API",
             headerStyle: {
               backgroundColor: "#130c18",
             },
@@ -99,7 +98,7 @@ export default function Navigation() {
           component={SettingsView}
           options={{
             headerShown: false,
-            title: "Settings",
+            title: "SQL",
             headerStyle: {
               backgroundColor: "#130c18",
             },
