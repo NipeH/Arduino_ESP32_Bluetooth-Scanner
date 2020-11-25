@@ -56,7 +56,7 @@ export default function Navigation() {
           options={{
             title: "Devices",
             headerStyle: {
-              backgroundColor: "black",
+              backgroundColor: "#130c18",
             },
             headerTintColor: "#fff",
             headerTitleStyle: {
