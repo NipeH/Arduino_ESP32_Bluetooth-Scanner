@@ -1,27 +1,31 @@
-import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { StatusBar } from "expo-status-bar";
+import React, { useEffect, useState } from "react";
+import { ActivityIndicator, FlatList, StyleSheet, Text, View } from "react-native";
 
-export default function HomeView({ navigation }) {
-  const [device, setDevice] = useState([]);
+export default function DeviceList() {
+  
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
 
+  useEffect(() => {
+    fetch('https://reactnative.dev/movies.json')
+      .then((response) => response.json())
+      .then((json) => setData(json.movies))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, []);
+  
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Devices", { device })}
-      >
-        <Image
-          source={{ uri: "https://i.imgur.com/6EyuKgK.png" }}
-          style={{ width: 300, height: 300 }}
+    <View style={{ flex: 1, padding: 60 }}>
+      {isLoading ? <ActivityIndicator/> : (
+        <FlatList
+          data={data}
+          keyExtractor={({ id }, index) => id}
+          renderItem={({ item }) => (
+            <Text>{item.title}, {item.releaseYear}</Text>
+          )}
         />
-      </TouchableOpacity>
+      )}
     </View>
   );
 }
@@ -33,6 +37,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  text: {
+    color: "white",
+    fontWeight: "bold",
+  },
 });
-
-//

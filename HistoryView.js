@@ -16,7 +16,7 @@ export default function DeviceList() {
   }, []);
   
   return (
-    <View style={{ flex: 1, padding: 24 }}>
+    <View style={{ flex: 1, padding: 60 }}>
       {isLoading ? <ActivityIndicator/> : (
         <FlatList
           data={data}
