@@ -23,7 +23,7 @@ Sitten alkaa erroria tulemaan ensimmäisellä kerralla, mutta kun painatte CREAT
 Node-Red lukee MQTT datan. Funktio ottaa datan, muokkaa sen tietokannalle sopivaksi, lisää siihen ID, Date, Time ja Data MQTT palvelusta. Tämän jälkeen se tallennetaan tietokantaan. 
 
 Node-Red endpointit:
-First Header | Second Header
+Endpoint | Mitä tekee
 ------------ | -------------
 /data | Hakee kaiken datan, JSON dump
 /data/all/count | Laskee tietueiden määrän
