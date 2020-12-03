@@ -33,13 +33,21 @@ Endpoint | Mitä tekee
 /data | Hakee kaiken datan, JSON dump
 /data/all/count | Laskee tietueiden määrän
 /data/all/unique | Hakee uniikit tietueet laite id:n mukaan
+/data/all/uniquedata | Hakee uniikit tietueet date, time, data formaatissa
 /data/all/unique/count | Laskee uniikit tietueet
 /data/today |  Hakee kaiken datan tältä päivältä
 /data/today/count | Laskee tietueiden määrän tältä päivältä
 /data/today/unique | Hakee uniikit tietueet laite id:n mukaan tältä päivältä
+/data/today/uniquedata | Hakee uniikit tietueet date, time, data formaatissa
 /data/today/unique/count | Laskee uniikit tietueet tältä päivältä
 /data/week | Hakee kaiken datan tältä viikolta
 /data/week/count | Laskee tietueiden määrän tältä viikolta
 /data/week/unique | Hakee uniikit tietueet laite id:n mukaan tältä viikolta
+/data/week/uniquedata | Hakee uniikit tietueet date, time, data formaatissa
 /data/week/unique/count | Laskee uniikit tietueet tältä viikolta
 
+## Dashboard
+
+Mene osoitteeseen: localhost:1880/ui/#/0
+
+Sieltä löytyy verkkosivusto, josta voi selata dataa hieman.
