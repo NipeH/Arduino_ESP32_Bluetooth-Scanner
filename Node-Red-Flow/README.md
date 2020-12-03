@@ -34,7 +34,7 @@ First Header | Second Header
 /data/today/unique | Hakee uniikit tietueet laite id:n mukaan tältä päivältä
 /data/today/unique/count | Laskee uniikit tietueet tältä päivältä
 /data/week | Hakee kaiken datan tältä viikolta
-/data/week/count  Laskee tietueiden määrän tältä viikolta
+/data/week/count | Laskee tietueiden määrän tältä viikolta
 /data/week/unique | Hakee uniikit tietueet laite id:n mukaan tältä viikolta
 /data/week/unique/count | Laskee uniikit tietueet tältä viikolta
 
