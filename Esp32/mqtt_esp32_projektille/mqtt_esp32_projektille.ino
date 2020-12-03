@@ -7,7 +7,7 @@
 #include <Wire.h>
 
 // Replace the next variables with your SSID/Password combination
-const char* ssid = "SSID tahan";
+const char* ssid = "SSID";
 const char* password = "Salasana";
 
 // Add your MQTT Broker IP address, example:
@@ -24,6 +24,7 @@ BLEScan* pBLEScan;
 
 void setup() {
   Serial.begin(115200);
+  
 
   setup_wifi();
   client.setServer(mqtt_server, 1883);
@@ -72,6 +73,7 @@ void scannaus(){
   class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks {
     void onResult(BLEAdvertisedDevice advertisedDevice) {
       client.publish("/esp32/device_2", advertisedDevice.getAddress().toString().c_str());
+
     }
   };
   BLEDevice::init("");
