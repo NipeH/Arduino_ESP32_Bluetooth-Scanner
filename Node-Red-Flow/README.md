@@ -2,7 +2,12 @@
 
 Asentakaa ensin Node-Red, jonka jälkeen syöttäkää konsoliin: node-red
 
-Node-red käynnistyy, jonka jälkeen voitte oikeasta yläreunasta painaa kolmea viivaa ja importtaa tässä kansiossa olevan JSON tiedoston (MQTT_Broker_Database_v*).
+Node-red käynnistyy, jonka jälkeen voitte oikeasta yläreunasta painaa kolmea viivaa 
+- Manage palette: 
+-- Hae SQLlite ja asenna.
+-- Hae Dashboard ja asenna.
+
+Paina jälleen kolmea viivaa yläreunasta ja paina import. Importtaa tässä kansiossa olevan JSON tiedoston (MQTT_Broker_Database_v*).
 
 Tämä Flow hakee Brokerilta dataa, tällä hetkellä minun brokerilta. Voitte testata jollain muulla, esim 
 "/hfp/v2/journey/ongoing/vp/bus/+/+/+/+/+/+/+/+/60;24/28/08/12/#" 
