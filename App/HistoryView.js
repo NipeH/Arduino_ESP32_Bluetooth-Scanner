@@ -15,7 +15,7 @@ export default function App() {
   const [recipes, setRecipe] = useState([]);
 
   const getRecipe = () => {
-    const url = "http://www.recipepuppy.com/api/?i=" + desc;
+    const url = "http://www.recipepuppy.com/api/?i=" + desc; // tähän haku laitteiden tietokannasta
     fetch(url)
       .then((response) => response.json())
       .then((responseJson) => {
