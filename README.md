@@ -86,6 +86,7 @@ These steps will help you to run the project.
 
 Asentakaa ensin Node-Red, jonka jälkeen syöttäkää konsoliin: node-red
 
+
 Node-red käynnistyy, jonka jälkeen voitte oikeasta yläreunasta painaa kolmea viivaa 
 - Manage palette: 
 -- Hae SQLlite ja asenna.
