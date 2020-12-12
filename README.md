@@ -1,16 +1,18 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/sammusama/Arduino/blob/master/App">
+  <a href="https://github.com/sammusama/Arduino/blob/master">
     <img src="arduino.png" alt="Logo" width="150" height="150">
   </a>
 
   <h3 align="center">Bluetooth scanner</h3>
 
   <p align="center">
-    Ihmis määrien arviointiin tietyllä aleueella tarkoitettu Bluetooth skanneri.
+    Bluetooth scanner to collect data from BLE devices nearby
+  
+ 
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Tutki tiedostoja täältä</strong></a>
+    <a href="https://github.com/github_username/repo_name"><strong>Project files can be foud here.</strong></a>
     <br />
   </p>
 </p>
@@ -20,12 +22,12 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## Tietoa projektista
+## About the project
 
 
 
 
-### Käytetyt teknologiat
+### Technologies used
 
 * ESP32
 * Node
@@ -36,17 +38,33 @@
 
 
 <!-- GETTING STARTED -->
-## Projektin aloitus
+## Getting started
 
-Näillä ohjeilla saat projektisi pyörimään.
+These steps will help you to run the project.
 
-### ESP32
+### ESP32 Bluetooth module
 
-1. ESP32 pitää uudelleen formatoida jotta ohjelma mahtuu laitteelle.
+1. ESP32 programming is done with Arduino IDE using C++. 
    
-   Tässä ohje: https://www.youtube.com/watch?v=5VoXNloOwZE
+   Download Arduino IDE  https://www.arduino.cc/en/software
 
-2. lisää
+
+2. Libraries for this project:
+
+   <BLEDevice.h> (standard library)
+   <BLEUtils.h> (standard library)
+   <BLEScan.h> (standard library)
+   <BLEAdvertisedDevice.h> http://www.neilkolban.com/esp32/docs/cpp_utils/html/files.html
+   <WiFi.h> https://github.com/arduino-libraries/WiFi
+   <PubSubClient.h> https://github.com/knolleary/pubsubclient
+   <Wire.h> (standard library)
+
+
+3. In factory state the ESP32 has limited memory to run program. To allow the bluetooth module use MQTT-program, its memory needs to be allocated again.
+   
+   Guide on how to allocate the memory: https://www.youtube.com/watch?v=5VoXNloOwZE
+
+  
    
 
 
@@ -113,5 +131,6 @@ Contributions are what make the open source community such an amazing place to b
 ## License
 
 Kaikki projektin koodi on vapaassa käytössä.
+
 
 
