@@ -65,14 +65,27 @@ Näillä ohjeilla saat projektisi pyörimään.
 
 ### Node-Red
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
+Asentakaa ensin Node-Red, jonka jälkeen syöttäkää konsoliin: node-red
+
+Node-red käynnistyy, jonka jälkeen voitte oikeasta yläreunasta painaa kolmea viivaa 
+- Manage palette: 
+-- Hae SQLlite ja asenna.
+-- Hae Dashboard ja asenna.
+
+Paina jälleen kolmea viivaa yläreunasta ja paina import. Importtaa tässä kansiossa olevan JSON tiedoston (MQTT_Broker_Database_v*).
+
+Tämä Flow hakee Brokerilta dataa, tällä hetkellä minun brokerilta. Voitte testata jollain muulla, esim 
+"/hfp/v2/journey/ongoing/vp/bus/+/+/+/+/+/+/+/+/60;24/28/08/12/#" 
+Tuo kysely hakee Huopalahdentieltä liikenteen.
+https://www.openstreetmap.org/search?whereami=1&query=60.20109%2C24.88266#map=17/60.20109/24.88266
+
+Eli muokatkaa ensim Brokerin osoite kondikseen.
+
+Seuraavaksi avatkaa tietokanta node ja määrittäkää mihin tallentaa tiedot "hakemisto/tietokanta.db esimerkiksi" (Win,MacOs,Linux hakemistorakentee huomioiden).
+
+Deploy Node oikealta ylhäältä.
+
+Sitten alkaa erroria tulemaan ensimmäisellä kerralla, mutta kun painatte CREATE TABLE niin error poistuu. 
 
 
 
