@@ -20,7 +20,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About the project
 
+This project was made for a course in Haaga-Helia UAS.  
 
+Main idea was to create a ESP32 IoT-device that collects bluetooth data from the nearby devices as mobilephones and other bluetooth devices.  
+Then we planned to send it to a program that allows monitoring the collected data in real time and save it to a database. 
+Now we could use CRUD commands to bring the data to charts in mobile devices for example. 
 
 
 ### Technologies used
@@ -30,6 +34,7 @@
 * Node-Red
 * MQTT
 * ArduinoIDE
+* Bluetooth Low Energy
 
 
 
@@ -38,44 +43,23 @@
 
 These steps will help you to run the project.
 
-### ESP32 Bluetooth module
+### ESP32 Microcontroller
 
 1. ESP32 programming is done with Arduino IDE using C++. 
-   
-   Download Arduino IDE  https://www.arduino.cc/en/software
+   Download Arduino IDE here:  https://www.arduino.cc/en/software
+   Also remember to install ESP32 to your IDE and all the prerequisites: https://www.hackster.io/abdularbi17/how-to-install-esp32-board-in-arduino-ide-1cd571
 
-
-2. Libraries for this project:
-
-   * <BLEDevice.h> (standard library)
-   * <BLEUtils.h> (standard library)
-   * <BLEScan.h> (standard library)
-   * <BLEAdvertisedDevice.h> http://www.neilkolban.com/esp32/docs/cpp_utils/html/files.html
-   * <WiFi.h> https://github.com/arduino-libraries/WiFi
-   * <PubSubClient.h> https://github.com/knolleary/pubsubclient
-   * <Wire.h> (standard library)
-
-
-3. In factory state the ESP32 has limited memory to run program. To allow the bluetooth module use MQTT-program, its memory needs to be allocated again.
-   
+2. In factory state the ESP32 has limited memory to run a program. To allow the bluetooth module use MQTT-program, its memory needs to be allocated again.
    Guide on how to allocate the memory: https://www.youtube.com/watch?v=5VoXNloOwZE
 
-  
+3. Some additional libraries for this project needs to be installed too:
+
+   * EspMQTTClient
+   * PubSubClient
+   * WiFi
    
-
-
-
-
-### Node
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
+4. Open 'mqtt_esp32_projektille.ino' in the IDE and upload it to your ESP32.
+   You can open the serial monitor to see what is going on.
 
 
 ### Node-Red / Node-Red-MQTT-SQLITE v 1.0.0
@@ -90,10 +74,28 @@ These steps will help you to run the project.
 
 
 
+### Node (Optional since the App is not in fully working)
+
+Tähän vielä korjauksia!!
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/sammusama/Arduino
+   ```
+
+2. Go to /App folder with your cmd.
+
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+
+
 <!-- USAGE EXAMPLES -->
 ## Usage examples
 
- Bluetooth scanner to collect data from BLE devices nearby. 
+ ESP32 enables use of one or mode bluetooth modules to send data to a same MQTT-client. This means that multiple invidual ESP32 devices can be set to cover a area using nothing but USB power attached to them.  
  
  This programn can be used to collect data and estimate human traffic inside buildings or on the streets. This can be used by some city to calculate population on certain area or human behavior how they move in the area.
 
@@ -101,13 +103,11 @@ These steps will help you to run the project.
  
  
 
-
-
-
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
+Tähän vielä korjauksia!!
+ 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
