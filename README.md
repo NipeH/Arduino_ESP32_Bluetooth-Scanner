@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/sammusama/Arduino/blob/master">
+  <a href="https://github.com/sammusama/Arduino/blob/master/App/">
     <img src="arduino.png" alt="Logo" width="150" height="150">
   </a>
 
