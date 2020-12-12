@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/sammusama/Arduino/blob/master">
-    <img src="arduino.png" alt="Logo" width="80" height="80">
+    <img src="arduino.png" alt="Logo" width="150" height="150">
   </a>
 
   <h3 align="center">Bluetooth scanner</h3>
@@ -20,21 +20,23 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Tietoa projektista
 
 
 
 
-### Built With
+### Käytetyt teknologiat
 
-* []()
-* []()
-* []()
+* ESP32
+* Node
+* Node-Red
+* MQTT
+* ArduinoIDE
 
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Projektin aloitus
 
 Näillä ohjeilla saat projektisi pyörimään.
 
@@ -44,10 +46,9 @@ Näillä ohjeilla saat projektisi pyörimään.
    
    Tässä ohje: https://www.youtube.com/watch?v=5VoXNloOwZE
 
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
+2. lisää
+   
+
 
 
 
@@ -90,18 +91,8 @@ Sitten alkaa erroria tulemaan ensimmäisellä kerralla, mutta kun painatte CREAT
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Käyttö
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
 
 
 
