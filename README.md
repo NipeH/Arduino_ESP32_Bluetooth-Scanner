@@ -8,7 +8,7 @@
   <h3 align="center">Bluetooth scanner</h3>
 
   <p align="center">
-    Bluetooth scanner to collect data from BLE devices nearby
+    Bluetooth scanner to collect data from BLE devices nearby. You can use it as a cheap burglar alarm, a bluetooth id scanner or just use it like we did and try to estimate human traffic.
   
  
     <br />
@@ -82,35 +82,82 @@ These steps will help you to run the project.
    ```
 
 
-### Node-Red
+### Node-Red / Node-Red-MQTT-SQLITE v 1.0.0
 
-Asentakaa ensin Node-Red, jonka jälkeen syöttäkää konsoliin: node-red
+Simple Node-Red program to read from a MQTT input ja store it in a database.
+
+Install Node-red: https://nodered.org/#get-started
+
+Install new nodes to your Node-Red pallette: Dashboard, Dashboard table and SQlite.
+
+Import the flows.json to your Node-Red and check the numbered notes in the flow screen.
+
+First you need a source for your MQTT, I used a ESP32 that sends ID data and separates each ID with a new line. Then the ID data is stored in the SQlite database along with the date, time and MQTT topic (this comes from the MQTT broker). To start the database you need to press the inject node CREATE TABLE, so the prosess can start. This is a workaround to create the table and file, might be worth to fix in the future.
+
+![alt text](https://github.com/MarcoBrandt/Node-Red-MQTT-SQLITE/blob/main/images/Screenshot%202020-12-12%20at%2014.29.16.png)
+
+Function node code for SQlite insertion:
+``` 
+var out = "INSERT INTO BTdata (date, time, topic, data)"
+var today = new Date()
+var time = today.toLocaleTimeString();
+var date = today.getDate()+'.'+(today.getMonth()+1)+'.'+today.getFullYear();
+
+out = out + "VALUES ('" + date + "','" + time + "','" 
+out = out + msg.topic + "','" + msg.payload + "');"
+    
+msg.topic=out;
+
+return msg;
+```
+
+After the data is stored in the database it can be read from multiple http end-points:
+![alt text](https://github.com/MarcoBrandt/Node-Red-MQTT-SQLITE/blob/main/images/Screenshot%202020-12-12%20at%2014.31.16.png)
 
 
-Node-red käynnistyy, jonka jälkeen voitte oikeasta yläreunasta painaa kolmea viivaa 
-- Manage palette: 
--- Hae SQLlite ja asenna.
--- Hae Dashboard ja asenna.
+Endpoint | What does it do?
+------------ | -------------
+/data | Fetches all the data, JSON dump
+/data/all/count | Counts all IDs from the database
+/data/all/unique | Fetches all data from devices with Unique ID
+/data/all/uniquedata |  Fetches data in date, time and data format from devices with Unique ID
+/data/all/unique/count | Counts all Unique IDs
+/data/today |  Fetches all data from today
+/data/today/count | Counts all IDs from today
+/data/today/unique | Fetches all data from today that has an Unique ID
+/data/today/uniquedata | Fetches data from today in date, time and data format from devices with Unique ID 
+/data/today/unique/count | Counts all Unique IDs from today
+/data/week | Fetches all data from last week
+/data/week/count | Counts all IDs from last week
+/data/week/unique | Fetches all data from last week that has an Unique ID
+/data/week/uniquedata | Fetches data from last week in date, time and data format from devices with Unique ID
+/data/week/unique/count | Counts all Unique IDs from last week
+/data/livefeed | Gets the latest scan information
 
-Paina jälleen kolmea viivaa yläreunasta ja paina import. Importtaa tässä kansiossa olevan JSON tiedoston (MQTT_Broker_Database_v*).
+## Dashboard
 
-Tämä Flow hakee Brokerilta dataa, tällä hetkellä minun brokerilta. Voitte testata jollain muulla, esim 
-"/hfp/v2/journey/ongoing/vp/bus/+/+/+/+/+/+/+/+/60;24/28/08/12/#" 
-Tuo kysely hakee Huopalahdentieltä liikenteen.
-https://www.openstreetmap.org/search?whereami=1&query=60.20109%2C24.88266#map=17/60.20109/24.88266
+Dashboard nodes with timed injections. Live feed updates every 5 seconds, the rest updates once per minutes. For this to work you need Dashboard and Dashboard tables installed on your Node-Red.
 
-Eli muokatkaa ensim Brokerin osoite kondikseen.
+![alt text](https://github.com/MarcoBrandt/Node-Red-MQTT-SQLITE/blob/main/images/Screenshot%202020-12-12%20at%2014.32.05.png)
 
-Seuraavaksi avatkaa tietokanta node ja määrittäkää mihin tallentaa tiedot "hakemisto/tietokanta.db esimerkiksi" (Win,MacOs,Linux hakemistorakentee huomioiden).
+Go to the address: localhost:1880/ui/#/0
 
-Deploy Node oikealta ylhäältä.
+![alt text](https://github.com/MarcoBrandt/Node-Red-MQTT-SQLITE/blob/main/images/Screenshot%202020-12-12%20at%2014.42.50.png)
 
-Sitten alkaa erroria tulemaan ensimmäisellä kerralla, mutta kun painatte CREATE TABLE niin error poistuu. 
 
 
 
 <!-- USAGE EXAMPLES -->
-## Käyttö
+## Usage examples
+
+ Bluetooth scanner to collect data from BLE devices nearby. 
+ 
+ This programn can be used to collect data and estimate human traffic inside buildings or on the streets. This can be used by some city to calculate population on certain area or human behavior how they move in the area.
+
+ Program can also be used as a cheap burglar alarm if the burglar has bluetooth connection on in his devices. It can also be used as just a simple id scanner.
+ 
+ 
+
 
 
 
@@ -131,7 +178,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Kaikki projektin koodi on vapaassa käytössä.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 
 
