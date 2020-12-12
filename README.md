@@ -10,10 +10,6 @@
   <p align="center">
     Bluetooth scanner to collect data from BLE devices nearby. You can use it as a cheap burglar alarm, a bluetooth id scanner or just use it like we did and try to estimate human traffic.
   
- 
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Project files can be foud here.</strong></a>
-    <br />
   </p>
 </p>
 
