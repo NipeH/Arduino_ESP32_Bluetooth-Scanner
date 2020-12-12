@@ -38,15 +38,32 @@
 
 Näillä ohjeilla saat projektisi pyörimään.
 
-### Prerequisites
+### ESP32
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+1. ESP32 pitää uudelleen formatoida jotta ohjelma mahtuu laitteelle.
+   
+   Tässä ohje: https://www.youtube.com/watch?v=5VoXNloOwZE
 
-### Installation
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+
+
+### Node
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/github_username/repo_name.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+
+### Node-Red
 
 1. Clone the repo
    ```sh
