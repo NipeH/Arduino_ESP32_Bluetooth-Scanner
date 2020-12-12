@@ -51,13 +51,13 @@ These steps will help you to run the project.
 
 2. Libraries for this project:
 
-   <BLEDevice.h> (standard library)
-   <BLEUtils.h> (standard library)
-   <BLEScan.h> (standard library)
-   <BLEAdvertisedDevice.h> http://www.neilkolban.com/esp32/docs/cpp_utils/html/files.html
-   <WiFi.h> https://github.com/arduino-libraries/WiFi
-   <PubSubClient.h> https://github.com/knolleary/pubsubclient
-   <Wire.h> (standard library)
+   * <BLEDevice.h> (standard library)
+   * <BLEUtils.h> (standard library)
+   * <BLEScan.h> (standard library)
+   * <BLEAdvertisedDevice.h> http://www.neilkolban.com/esp32/docs/cpp_utils/html/files.html
+   * <WiFi.h> https://github.com/arduino-libraries/WiFi
+   * <PubSubClient.h> https://github.com/knolleary/pubsubclient
+   * <Wire.h> (standard library)
 
 
 3. In factory state the ESP32 has limited memory to run program. To allow the bluetooth module use MQTT-program, its memory needs to be allocated again.
