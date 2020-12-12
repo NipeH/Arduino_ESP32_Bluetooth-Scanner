@@ -1,53 +1,62 @@
-## NODE-RED
+# Node-Red-MQTT-SQLITE v 1.0.0
+Simple Node-Red program to read from a MQTT input ja store it in a database. This is a part of a school project that I worked on, but you can easily use it for other purposes. You can use it as a cheap burglar alarm, a bluetooth id scanner or just use it like we did and try to estimate human traffic.
 
-Asentakaa ensin Node-Red, jonka jälkeen syöttäkää konsoliin: node-red
+Install Node-red: https://nodered.org/#get-started
 
-Node-red käynnistyy, jonka jälkeen voitte oikeasta yläreunasta painaa kolmea viivaa 
-- Manage palette: 
--- Hae SQLlite ja asenna.
--- Hae Dashboard ja asenna.
+Install new nodes to your Node-Red pallette: Dashboard, Dashboard table and SQlite.
 
-Paina jälleen kolmea viivaa yläreunasta ja paina import. Importtaa tässä kansiossa olevan JSON tiedoston (MQTT_Broker_Database_v*).
+Import the flows.json to your Node-Red and check the numbered notes in the flow screen.
 
-Tämä Flow hakee Brokerilta dataa, tällä hetkellä minun brokerilta. Voitte testata jollain muulla, esim 
-"/hfp/v2/journey/ongoing/vp/bus/+/+/+/+/+/+/+/+/60;24/28/08/12/#" 
-Tuo kysely hakee Huopalahdentieltä liikenteen.
-https://www.openstreetmap.org/search?whereami=1&query=60.20109%2C24.88266#map=17/60.20109/24.88266
+First you need a source for your MQTT, I used a ESP32 that sends ID data and separates each ID with a new line. Then the ID data is stored in the SQlite database along with the date, time and MQTT topic (this comes from the MQTT broker). To start the database you need to press the inject node CREATE TABLE, so the prosess can start. This is a workaround to create the table and file, might be worth to fix in the future.
 
-Eli muokatkaa ensim Brokerin osoite kondikseen.
+![alt text](https://github.com/MarcoBrandt/Node-Red-MQTT-SQLITE/blob/main/images/Screenshot%202020-12-12%20at%2014.29.16.png)
 
-Seuraavaksi avatkaa tietokanta node ja määrittäkää mihin tallentaa tiedot "hakemisto/tietokanta.db esimerkiksi" (Win,MacOs,Linux hakemistorakentee huomioiden).
+Function node code for SQlite insertion:
+``` 
+var out = "INSERT INTO BTdata (date, time, topic, data)"
+var today = new Date()
+var time = today.toLocaleTimeString();
+var date = today.getDate()+'.'+(today.getMonth()+1)+'.'+today.getFullYear();
 
-Deploy Node oikealta ylhäältä.
+out = out + "VALUES ('" + date + "','" + time + "','" 
+out = out + msg.topic + "','" + msg.payload + "');"
+    
+msg.topic=out;
 
-Sitten alkaa erroria tulemaan ensimmäisellä kerralla, mutta kun painatte CREATE TABLE niin error poistuu. 
+return msg;
+```
+
+After the data is stored in the database it can be read from multiple http end-points:
+![alt text](https://github.com/MarcoBrandt/Node-Red-MQTT-SQLITE/blob/main/images/Screenshot%202020-12-12%20at%2014.31.16.png)
 
 
-## Mitä tapahtuu?
-
-Node-Red lukee MQTT datan. Funktio ottaa datan, muokkaa sen tietokannalle sopivaksi, lisää siihen ID, Date, Time ja Data MQTT palvelusta. Tämän jälkeen se tallennetaan tietokantaan. 
-
-Node-Red endpointit:
-Endpoint | Mitä tekee
+Endpoint | What does it do?
 ------------ | -------------
-/data | Hakee kaiken datan, JSON dump
-/data/all/count | Laskee tietueiden määrän
-/data/all/unique | Hakee uniikit tietueet laite id:n mukaan
-/data/all/uniquedata | Hakee uniikit tietueet date, time, data formaatissa
-/data/all/unique/count | Laskee uniikit tietueet
-/data/today |  Hakee kaiken datan tältä päivältä
-/data/today/count | Laskee tietueiden määrän tältä päivältä
-/data/today/unique | Hakee uniikit tietueet laite id:n mukaan tältä päivältä
-/data/today/uniquedata | Hakee uniikit tietueet date, time, data formaatissa
-/data/today/unique/count | Laskee uniikit tietueet tältä päivältä
-/data/week | Hakee kaiken datan tältä viikolta
-/data/week/count | Laskee tietueiden määrän tältä viikolta
-/data/week/unique | Hakee uniikit tietueet laite id:n mukaan tältä viikolta
-/data/week/uniquedata | Hakee uniikit tietueet date, time, data formaatissa
-/data/week/unique/count | Laskee uniikit tietueet tältä viikolta
+/data | Fetches all the data, JSON dump
+/data/all/count | Counts all IDs from the database
+/data/all/unique | Fetches all data from devices with Unique ID
+/data/all/uniquedata |  Fetches data in date, time and data format from devices with Unique ID
+/data/all/unique/count | Counts all Unique IDs
+/data/today |  Fetches all data from today
+/data/today/count | Counts all IDs from today
+/data/today/unique | Fetches all data from today that has an Unique ID
+/data/today/uniquedata | Fetches data from today in date, time and data format from devices with Unique ID 
+/data/today/unique/count | Counts all Unique IDs from today
+/data/week | Fetches all data from last week
+/data/week/count | Counts all IDs from last week
+/data/week/unique | Fetches all data from last week that has an Unique ID
+/data/week/uniquedata | Fetches data from last week in date, time and data format from devices with Unique ID
+/data/week/unique/count | Counts all Unique IDs from last week
+/data/livefeed | Gets the latest scan information
 
 ## Dashboard
 
-Mene osoitteeseen: localhost:1880/ui/#/0
+Dashboard nodes with timed injections. Live feed updates every 5 seconds, the rest updates once per minutes. For this to work you need Dashboard and Dashboard tables installed on your Node-Red.
 
-Sieltä löytyy verkkosivusto, josta voi selata dataa hieman.
+![alt text](https://github.com/MarcoBrandt/Node-Red-MQTT-SQLITE/blob/main/images/Screenshot%202020-12-12%20at%2014.32.05.png)
+
+Go to the address: localhost:1880/ui/#/0
+
+![alt text](https://github.com/MarcoBrandt/Node-Red-MQTT-SQLITE/blob/main/images/Screenshot%202020-12-12%20at%2014.42.50.png)
+
+
