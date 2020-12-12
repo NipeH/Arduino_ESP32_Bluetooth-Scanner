@@ -96,6 +96,7 @@ First you need a source for your MQTT, I used a ESP32 that sends ID data and sep
 
 ![alt text](https://github.com/MarcoBrandt/Node-Red-MQTT-SQLITE/blob/main/images/Screenshot%202020-12-12%20at%2014.29.16.png)
 
+
 Function node code for SQlite insertion:
 ``` 
 var out = "INSERT INTO BTdata (date, time, topic, data)"
@@ -111,8 +112,11 @@ msg.topic=out;
 return msg;
 ```
 
+
 After the data is stored in the database it can be read from multiple http end-points:
 ![alt text](https://github.com/MarcoBrandt/Node-Red-MQTT-SQLITE/blob/main/images/Screenshot%202020-12-12%20at%2014.31.16.png)
+
+
 
 
 Endpoint | What does it do?
@@ -134,15 +138,21 @@ Endpoint | What does it do?
 /data/week/unique/count | Counts all Unique IDs from last week
 /data/livefeed | Gets the latest scan information
 
+
+
 ## Dashboard
 
 Dashboard nodes with timed injections. Live feed updates every 5 seconds, the rest updates once per minutes. For this to work you need Dashboard and Dashboard tables installed on your Node-Red.
 
+
 ![alt text](https://github.com/MarcoBrandt/Node-Red-MQTT-SQLITE/blob/main/images/Screenshot%202020-12-12%20at%2014.32.05.png)
+
 
 Go to the address: localhost:1880/ui/#/0
 
+
 ![alt text](https://github.com/MarcoBrandt/Node-Red-MQTT-SQLITE/blob/main/images/Screenshot%202020-12-12%20at%2014.42.50.png)
+
 
 
 
