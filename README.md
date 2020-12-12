@@ -56,7 +56,7 @@ These steps will help you to run the project.
    * <Wire.h> (standard library)
 
 
-3. In factory state the ESP32 has limited memory to run program. To allow the bluetooth module use MQTT-program, its memory needs to be allocated again.
+3. In factory state the ESP32 has limited memory to run program. To allow the bluetooth module use MQTT-libraries, its memory needs to be allocated again.
    
    Guide on how to allocate the memory: https://www.youtube.com/watch?v=5VoXNloOwZE
 
