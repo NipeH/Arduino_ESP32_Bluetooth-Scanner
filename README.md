@@ -80,7 +80,7 @@ Clone the repo
 
 3. Import the flows.json to your Node-Red and check the numbered notes in the flow screen.
 
-4. For more detailed instructions to configure your flows and more documentation [here](https://github.com/sammusama/Arduino/blob/master/Node-Red-Flow/README.md).
+4. For detailed instructions to configure your flows and more documentation check [here](https://github.com/sammusama/Arduino/blob/master/Node-Red-Flow/README.md).
 
 ### Expo-App (Optional)
 
