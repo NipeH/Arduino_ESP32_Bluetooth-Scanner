@@ -1,4 +1,4 @@
-{
+/*{
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "jsx": "react-native",
@@ -9,4 +9,4 @@
     "resolveJsonModule": true,
     "strict": true
   }
-}
+}*/

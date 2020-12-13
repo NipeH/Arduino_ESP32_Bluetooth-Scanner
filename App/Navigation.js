@@ -53,7 +53,7 @@ export default function Navigation() {
           name="Devices"
           component={DeviceView}
           options={{
-            title: "Devices",
+            title: "Devices today",
             headerStyle: {
               backgroundColor: "#130c18",
             },
@@ -68,7 +68,7 @@ export default function Navigation() {
           component={HistoryView}
           options={{
             headerShown: false,
-            title: "API",
+            title: "Search",
             headerStyle: {
               backgroundColor: "#130c18",
             },
@@ -83,26 +83,11 @@ export default function Navigation() {
           component={StatsView}
           options={{
             headerShown: false,
-            title: "Statistics",
+            title: "History",
             headerStyle: {
               backgroundColor: "#130c18",
             },
             headerTintColor: "red",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-          }}
-        />
-                <Tab.Screen
-          name="Settings"
-          component={SettingsView}
-          options={{
-            headerShown: false,
-            title: "SQL",
-            headerStyle: {
-              backgroundColor: "#130c18",
-            },
-            headerTintColor: "#fff",
             headerTitleStyle: {
               fontWeight: "bold",
             },

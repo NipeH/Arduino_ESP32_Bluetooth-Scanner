@@ -15,7 +15,7 @@ export default function App() {
   const [recipes, setRecipe] = useState([]);
 
   const getRecipe = () => {
-    const url = "http://www.recipepuppy.com/api/?i=" + desc; // tähän haku laitteiden tietokannasta
+    const url = "http://192.168.2.190:1880/data/today"; // tähän haku laitteiden tietokannasta
     fetch(url)
       .then((response) => response.json())
       .then((responseJson) => {
@@ -46,7 +46,7 @@ export default function App() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View>
-            <Text>{item.title}</Text>
+            <Text>{item.id}</Text>
             <Image
               style={{ width: 100, height: 100 }}
               source={{ uri: item.thumbnail }}

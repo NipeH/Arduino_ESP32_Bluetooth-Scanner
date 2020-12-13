@@ -8,9 +8,9 @@ export default function DeviceList() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://reactnative.dev/movies.json')
+    fetch('http://192.168.2.190:1880/data/today')
       .then((response) => response.json())
-      .then((json) => setData(json.movies))
+      .then((json) => setData(json))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
@@ -22,7 +22,7 @@ export default function DeviceList() {
           data={data}
           keyExtractor={({ id }, index) => id}
           renderItem={({ item }) => (
-            <Text>{item.title}, {item.releaseYear}</Text>
+          <Text>{item.id} {item.data} {item.date}</Text>
           )}
         />
       )}
