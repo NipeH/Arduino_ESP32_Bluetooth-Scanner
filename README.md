@@ -8,7 +8,7 @@
   <h3 align="center">Bluetooth scanner</h3>
 
   <p align="center">
-    Bluetooth scanner to collect data from BLE devices nearby. You can use it as a cheap burglar alarm, a bluetooth id scanner or just use it like we did and try to estimate human traffic.
+    Bluetooth scanner to collect data from BLE devices nearby. You can use it as a cheap burglar alarm, a bluetooth id scanner or just like we did and try to estimate human traffic.
   
   </p>
 </p>
@@ -22,9 +22,12 @@
 
 This project was made for a course in Haaga-Helia UAS.  
 
-Main idea was to create a ESP32 IoT-device that collects bluetooth data from the nearby devices as mobilephones and other bluetooth devices.  
-Then we planned to send it to a program that allows monitoring the collected data in real time and save it to a database. 
-Now we could use CRUD commands to bring the data to charts in mobile devices for example. 
+Main idea was to create a ESP32 IoT-device that collects bluetooth data from the nearby devices, such as mobilephones and other bluetooth devices.
+
+Then we planned to send it to a program that allows to monitor the collected data in real time and save it to a database. 
+Whit the database we could use CRUD commands to bring the data to charts in mobile devices for example. 
+
+While researching the topics, we found out more about bluetooh and its limitations. Due to time limitations we focused to use BLE aka Bluetooth Low Energy for now. Bluetooth Classic could be possibly added to the project later on.
 
 
 ### Technologies used
@@ -47,9 +50,10 @@ These steps will help you to run the project.
 
 1. ESP32 programming is done with Arduino IDE using C++. 
    Download Arduino IDE here:  https://www.arduino.cc/en/software
+   </br>
    Also remember to install ESP32 to your IDE and all the prerequisites: https://www.hackster.io/abdularbi17/how-to-install-esp32-board-in-arduino-ide-1cd571
 
-2. In factory state the ESP32 has limited memory to run a program. To allow the bluetooth module use MQTT-program, its memory needs to be allocated again.
+2. In factory state the ESP32 has limited memory to run a program. </br>To allow your ESP to use our MQTT-program, its memory needs to be allocated again.
    Guide on how to allocate the memory: https://www.youtube.com/watch?v=5VoXNloOwZE
 
 3. Some additional libraries for this project needs to be installed too:
@@ -70,7 +74,7 @@ These steps will help you to run the project.
 
 3. Import the flows.json to your Node-Red and check the numbered notes in the flow screen.
 
-4. For more detailed instructions to configure your flows and more documentation, go to: https://github.com/sammusama/Arduino/blob/master/Node-Red-Flow/README.md
+4. From the link you can find more detailed instructions to configure your flows and more documentation: https://github.com/sammusama/Arduino/blob/master/Node-Red-Flow/README.md
 
 
 
@@ -95,31 +99,24 @@ Tähän vielä korjauksia!!
 <!-- USAGE EXAMPLES -->
 ## Usage examples
 
- ESP32 enables use of one or mode bluetooth modules to send data to a same MQTT-client. This means that multiple invidual ESP32 devices can be set to cover a area using nothing but USB power attached to them.  
+ ESP32 enables the use of multiple devices to send data to a same MQTT-Broker. This means that multiple invidual ESP32 devices can be set to cover an area using nothing but USB power.  
  
- This programn can be used to collect data and estimate human traffic inside buildings or on the streets. This can be used by some city to calculate population on certain area or human behavior how they move in the area.
+ The collected data can be used to estimate human traffic inside buildings, on the streets or event venue. One use case could be to calculate population on certain area and their behavior how they move in there.
 
- Program can also be used as a cheap burglar alarm if the burglar has bluetooth connection on in his devices. It can also be used as just a simple id scanner.
+ Program can also be used as a cheap burglar alarm if the burglar has bluetooth connection on in his devices. It can also be used as just a simple id sniffer.
+ Possibilities are limited only by your imagination.
  
  
 
 <!-- CONTRIBUTING -->
 ## Contributing
-
-Tähän vielä korjauksia!!
  
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Any contributions you make are **greatly appreciated**.
 
 <!-- AUTHORS -->
 ## Authors
 
-Kasper Toikkanen, Marco Brandt, Sam Kahron, Niilo Hytönen
+**Marco Brandt | Kasper Toikkanen | Sam Kahron | Niilo Hytönen**
 
 <!-- LICENSE -->
 ## License
