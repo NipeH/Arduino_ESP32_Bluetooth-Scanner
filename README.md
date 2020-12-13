@@ -22,10 +22,10 @@
 
 This project was made for a course in Haaga-Helia UAS.  
 
-Main idea was to create a ESP32 IoT-device that collects bluetooth data from the nearby devices, such as mobilephones and other bluetooth devices.
+Main idea was to create ESP32 IoT-device that collects bluetooth data from nearby devices, such as mobilephones and other bluetooth devices.
 
 Then we planned to send it to a program that allows to monitor the collected data in real time and save it to a database. 
-Whit the database we could use CRUD commands to bring the data to charts in mobile devices for example. 
+With the database in use, we could bring the data into an app for example. 
 
 While researching the topics, we found out more about bluetooh and its limitations. Due to time limitations we focused to use BLE aka Bluetooth Low Energy for now. Bluetooth Classic could be possibly added to the project later on.
 
@@ -34,33 +34,34 @@ We highly recommend you to use these components in a way that fits your needs. I
 ### Technologies used
 
 * ESP32
-* Node
 * Node-Red
 * MQTT
 * ArduinoIDE
-* Bluetooth Low Energy
+* BluetoothLE
+* Expo
 
 <!-- GETTING STARTED -->
 ## Getting started
 
 These steps will help you to run the project and use different parts of it.
+If you have any questions, you can find all the answers [here](https://www.google.com/).
 
 Clone the repo
    ```sh
    git clone https://github.com/sammusama/Arduino
    ```
 
-### ESP32 Microcontroller
+### ESP32
 
 1. ESP32 programming is done with Arduino IDE using C++. 
-   Download Arduino IDE here:  https://www.arduino.cc/en/software
+   Download Arduino IDE [here](https://www.arduino.cc/en/software)
    </br>
-   Also remember to install ESP32 to your IDE and all the prerequisites: https://www.hackster.io/abdularbi17/how-to-install-esp32-board-in-arduino-ide-1cd571
+   Also remember to install ESP32 to your IDE and all the prerequisites. [Here is a tutorial.](https://www.hackster.io/abdularbi17/how-to-install-esp32-board-in-arduino-ide-1cd571)
 
 2. In factory state the ESP32 has limited memory to run a program. </br>To allow your ESP to use our MQTT-program, its memory needs to be allocated again.
-   Guide on how to allocate the memory: https://www.youtube.com/watch?v=5VoXNloOwZE
+   Guide on how to allocate the memory. [Here is a tutorial.](https://www.youtube.com/watch?v=5VoXNloOwZE)
 
-3. Some additional libraries for this project needs to be installed too:
+3. Some additional libraries for this project needs to be installed on the IDE:
 
    * EspMQTTClient
    * PubSubClient
@@ -73,13 +74,13 @@ Clone the repo
 
 ### Node-Red
 
-1. Install Node-red: https://nodered.org/#get-started
+1. Install Node-red: [Get Started](https://nodered.org/#get-started).
 
 2. Install new nodes to your Node-Red pallette: Dashboard, Dashboard table and SQlite.
 
 3. Import the flows.json to your Node-Red and check the numbered notes in the flow screen.
 
-4. From the link you can find more detailed instructions to configure your flows and more documentation: https://github.com/sammusama/Arduino/blob/master/Node-Red-Flow/README.md
+4. For more detailed instructions to configure your flows and more documentation [here](https://github.com/sammusama/Arduino/blob/master/Node-Red-Flow/README.md).
 
 ### Expo-App (Optional)
 
@@ -119,6 +120,6 @@ Any contributions you make are **greatly appreciated**.
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-Arduino team logo made by Sam Kahron.
+Arduino team logo made by **Sam Kahron**.
 
 
