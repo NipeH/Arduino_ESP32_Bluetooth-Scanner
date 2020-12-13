@@ -29,6 +29,7 @@ Whit the database we could use CRUD commands to bring the data to charts in mobi
 
 While researching the topics, we found out more about bluetooh and its limitations. Due to time limitations we focused to use BLE aka Bluetooth Low Energy for now. Bluetooth Classic could be possibly added to the project later on.
 
+We highly recommend you to use these components in a way that fits your needs. If you have done something cool using this project, please let us know.
 
 ### Technologies used
 
@@ -39,12 +40,15 @@ While researching the topics, we found out more about bluetooh and its limitatio
 * ArduinoIDE
 * Bluetooth Low Energy
 
-
-
 <!-- GETTING STARTED -->
 ## Getting started
 
-These steps will help you to run the project.
+These steps will help you to run the project and use different parts of it.
+
+Clone the repo
+   ```sh
+   git clone https://github.com/sammusama/Arduino
+   ```
 
 ### ESP32 Microcontroller
 
@@ -62,11 +66,12 @@ These steps will help you to run the project.
    * PubSubClient
    * WiFi
    
-4. Open 'mqtt_esp32_projektille.ino' in the IDE and upload it to your ESP32.
-   You can open the serial monitor to see what is going on.
+4. Open 'mqtt_esp32_projektille.ino' in the IDE and change your Wifi and broker topic details in the code.
 
+5. Upload the code to your ESP32.
+   You can open the serial monitor to see what is going on when the code is loaded.
 
-### Node-Red / Node-Red-MQTT-SQLITE v 1.0.0
+### Node-Red
 
 1. Install Node-red: https://nodered.org/#get-started
 
@@ -76,25 +81,18 @@ These steps will help you to run the project.
 
 4. From the link you can find more detailed instructions to configure your flows and more documentation: https://github.com/sammusama/Arduino/blob/master/Node-Red-Flow/README.md
 
+### Expo-App (Optional)
 
+1. Go to /App folder with your cmd.
 
-### Node (Optional since the App is not in fully working)
-
-Tähän vielä korjauksia!!
-
-1. Clone the repo
+2. Install NPM packages
    ```sh
-   git clone https://github.com/sammusama/Arduino
+   npm install expo
    ```
-
-2. Go to /App folder with your cmd.
-
-3. Install NPM packages
+3. Start expo
    ```sh
-   npm install
+   expo start
    ```
-
-
 
 <!-- USAGE EXAMPLES -->
 ## Usage examples
@@ -105,8 +103,6 @@ Tähän vielä korjauksia!!
 
  Program can also be used as a cheap burglar alarm if the burglar has bluetooth connection on in his devices. It can also be used as just a simple id sniffer.
  Possibilities are limited only by your imagination.
- 
- 
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -121,7 +117,7 @@ Any contributions you make are **greatly appreciated**.
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Arduino team logo made by Sam Kahron.
 
